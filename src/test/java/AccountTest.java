@@ -46,7 +46,7 @@ public class AccountTest {
     @DisplayName("Checking if space is a last symbol")
     @Description("Basic negative test when name ends with space")
     public void nameEndsWithSpaceTest(){
-        Account account = new Account("qw23 ");
+        Account account = new Account("qxw23 ");
         boolean actual = account.checkNameToEmboss();
         Assert.assertFalse(actual);
     }
@@ -60,4 +60,21 @@ public class AccountTest {
         Assert.assertFalse(actual);
     }
 
+    @Test
+    @DisplayName("Checking if there is only one space")
+    @Description("Basic negative test when name didn't includes any space")
+    public void onlySingeSpaceTestPositive(){
+        Account account = new Account("Denis Sangi");
+        boolean actual = account.onlyOneSpace(account.getName(), " ");
+        Assert.assertTrue(actual);
+    }
+
+    @Test
+    @DisplayName("Checking if there is more than one space")
+    @Description("Basic negative test when name didn't includes any space")
+    public void onlySingeSpaceTestNegative(){
+        Account account = new Account("Denis San gi");
+        boolean actual = account.onlyOneSpace(account.getName(), " ");
+        Assert.assertFalse(actual);
+    }
 }
