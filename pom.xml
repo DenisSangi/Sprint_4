@@ -11,7 +11,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.1</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
         <!-- модуль взаимодействия Allure и Junit -->
@@ -82,5 +82,5 @@
         <!-- версия Allure -->
         <allure.version>2.15.0</allure.version>
     </properties>
-
+    <!--Просто добавлю комментарий чтобы были изменения для Пулл Реквеста -->
 </project>

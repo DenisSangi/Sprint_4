@@ -3,6 +3,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Test;
 
+//Просто добавлю комментарий чтобы были изменения для Пулл Реквеста
 public class AccountTest {
 
     @Test
@@ -11,7 +12,7 @@ public class AccountTest {
     public void correctNameTest(){
         Account account = new Account("Denis Sangi");
         boolean actual = account.checkNameToEmboss();
-        Assert.assertEquals(true, actual);
+        Assert.assertTrue(actual);
     }
 
     @Test
@@ -20,7 +21,7 @@ public class AccountTest {
     public void toShortNameTest(){
         Account account = new Account("qw");
         boolean actual = account.checkNameToEmboss();
-        Assert.assertEquals(false, actual);
+        Assert.assertFalse(actual);
     }
 
     @Test
@@ -29,7 +30,7 @@ public class AccountTest {
     public void toLongNameTest(){
         Account account = new Account("qwhuifhn8723y80ijrnfuhywg67dfwcsvasf");
         boolean actual = account.checkNameToEmboss();
-        Assert.assertEquals(false, actual);
+        Assert.assertFalse(actual);
     }
 
     @Test
@@ -38,7 +39,7 @@ public class AccountTest {
     public void nameStartsWithSpaceTest(){
         Account account = new Account(" qwewd");
         boolean actual = account.checkNameToEmboss();
-        Assert.assertEquals(false, actual);
+        Assert.assertFalse(actual);
     }
 
     @Test
@@ -47,7 +48,7 @@ public class AccountTest {
     public void nameEndsWithSpaceTest(){
         Account account = new Account("qw23 ");
         boolean actual = account.checkNameToEmboss();
-        Assert.assertEquals(false, actual);
+        Assert.assertFalse(actual);
     }
 
     @Test
@@ -56,7 +57,7 @@ public class AccountTest {
     public void nameWithoutSpaceTest(){
         Account account = new Account("qwewqdwfwe");
         boolean actual = account.checkNameToEmboss();
-        Assert.assertEquals(false, actual);
+        Assert.assertFalse(actual);
     }
 
 }

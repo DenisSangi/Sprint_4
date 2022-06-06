@@ -1,3 +1,4 @@
+//Просто добавлю комментарий чтобы были изменения для Пулл Реквеста
 public class Praktikum {
 
     private static String name = "weedqwefer";
