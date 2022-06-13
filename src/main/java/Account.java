@@ -1,5 +1,3 @@
-import org.jetbrains.annotations.NotNull;
-
 //Просто добавлю комментарий чтобы были изменения для Пулл Реквеста
 public class Account {
 

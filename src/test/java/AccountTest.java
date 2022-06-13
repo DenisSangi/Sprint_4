@@ -1,8 +1,4 @@
-import io.qameta.allure.Description;
-import io.qameta.allure.junit4.DisplayName;
 import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
