@@ -77,4 +77,13 @@ public class AccountTest {
         boolean actual = account.checkNameToEmboss();
         Assert.assertFalse(actual);
     }
+
+    @Test
+    @DisplayName("Checking 19")
+    @Description("Basic зщышешму test for border value")
+    public void nineteenTest(){
+        Account account = new Account("Denis Sangi12345678");
+        boolean actual = account.checkNameToEmboss();
+        Assert.assertTrue(actual);
+    }
 }
