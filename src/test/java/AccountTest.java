@@ -17,7 +17,6 @@ public class AccountTest {
         this.expected = expected;
     }
 
-    @Contract(value = " -> new", pure = true)
     @Parameterized.Parameters
     public static Object[][] getData() {
         return new Object[][] {
