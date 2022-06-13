@@ -9,12 +9,10 @@ public class Praktikum {
          */
 
         String name = "Denis Sangi";
-        String subStr = " ";
         Account account = new Account(name);
         boolean isNamePrintable = account.checkNameToEmboss();
         System.out.println("Name is printable?" + " " + isNamePrintable);
-        boolean isSingleSpace = account.onlyOneSpace(name, subStr);
-        System.out.println("Is there only one space?" + " " + isSingleSpace);
+
     }
 
 }

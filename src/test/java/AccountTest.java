@@ -19,7 +19,7 @@ public class AccountTest {
     @DisplayName("Checking short name")
     @Description("Basic negative test when name.length() < 3")
     public void toShortNameTest(){
-        Account account = new Account("qw");
+        Account account = new Account("qe");
         boolean actual = account.checkNameToEmboss();
         Assert.assertFalse(actual);
     }
@@ -28,7 +28,7 @@ public class AccountTest {
     @DisplayName("Checking long name")
     @Description("Basic negative test when name.length() > 19")
     public void toLongNameTest(){
-        Account account = new Account("qwhuifhn8723y80ijrnfuhywg67dfwcsvasf");
+        Account account = new Account("qwhuifhn8723y80ij rnfuhywg67dfwcsvasf");
         boolean actual = account.checkNameToEmboss();
         Assert.assertFalse(actual);
     }
@@ -65,7 +65,7 @@ public class AccountTest {
     @Description("Basic negative test when name didn't includes any space")
     public void onlySingeSpaceTestPositive(){
         Account account = new Account("Denis Sangi");
-        boolean actual = account.onlyOneSpace(account.getName(), " ");
+        boolean actual = account.checkNameToEmboss();
         Assert.assertTrue(actual);
     }
 
@@ -74,7 +74,7 @@ public class AccountTest {
     @Description("Basic negative test when name didn't includes any space")
     public void onlySingeSpaceTestNegative(){
         Account account = new Account("Denis San gi");
-        boolean actual = account.onlyOneSpace(account.getName(), " ");
+        boolean actual = account.checkNameToEmboss();
         Assert.assertFalse(actual);
     }
 }

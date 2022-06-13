@@ -1,7 +1,4 @@
-import lombok.Data;
-
 //Просто добавлю комментарий чтобы были изменения для Пулл Реквеста
-@Data
 public class Account {
 
     private final String name;
@@ -15,11 +12,19 @@ public class Account {
              Этот метод должен проверять, что сохранённая через конструктор строка соответствует требованиям.
              Если строка удовлетворяет условиям, метод возвращает true, иначе — false.
          */
-        return !(name.length() < 3) && !(name.length() > 19) && name.contains(" ") && !(name.startsWith(" ") && !(name.endsWith(" ")));
+        if (name.length() > 2 && name.length() <= 19)  if (isSingleSpace(name)) return true;
+        return false;
     }
 
-    public boolean onlyOneSpace(String input, String subStr) {
-        return input.indexOf(subStr) == input.lastIndexOf(subStr);
+    public boolean isSingleSpace(String name){
+        int spaces = 0;
+        for(char element : name.toCharArray()){
+            if (element == ' ')
+                spaces++;
+        }
+        if (name.startsWith(" ")) {return false;}
+        else if (name.endsWith(" ")) {return false;}
+        else if (spaces == 1) {return true;}
+        return false;
     }
-
     }
