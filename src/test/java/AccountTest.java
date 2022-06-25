@@ -1,62 +1,43 @@
-import io.qameta.allure.Description;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Assert;
+import org.jetbrains.annotations.Contract;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
+import static org.junit.Assert.assertEquals;
+
+//Просто добавлю комментарий чтобы были изменения для Пулл Реквеста
+@RunWith(Parameterized.class)
 public class AccountTest {
 
-    @Test
-    @DisplayName("Checking correct name")
-    @Description("Basic positive test")
-    public void correctNameTest(){
-        Account account = new Account("Denis Sangi");
-        boolean actual = account.checkNameToEmboss();
-        Assert.assertEquals(true, actual);
+    private final String name;
+    private final boolean expected;
+
+    public AccountTest(String name, boolean expected) {
+        this.name = name;
+        this.expected = expected;
+    }
+
+    @Parameterized.Parameters
+    public static Object[][] getData() {
+        return new Object[][] {
+        {"Denis Sangi", true},
+        {"Basic negative test when name.length() < 3", false},
+        {"qwhuifhn8723y80ij rnfuhywg67dfwcsvasf", false},
+        {" qwewd", false},
+        {"qxw23 ", false},
+        {"qwewqdwfwe", false},
+        {"Denis Sangi", true},
+        {"Denis San gi", false},
+        {"Denis Sangi12345678", true},
+        {"D S", true},
+        {"", false},
+        };
     }
 
     @Test
-    @DisplayName("Checking short name")
-    @Description("Basic negative test when name.length() < 3")
-    public void toShortNameTest(){
-        Account account = new Account("qw");
+    public void isNamePrintable(){
+        Account account = new Account(name);
         boolean actual = account.checkNameToEmboss();
-        Assert.assertEquals(false, actual);
+        assertEquals(expected, actual);
     }
-
-    @Test
-    @DisplayName("Checking long name")
-    @Description("Basic negative test when name.length() > 19")
-    public void toLongNameTest(){
-        Account account = new Account("qwhuifhn8723y80ijrnfuhywg67dfwcsvasf");
-        boolean actual = account.checkNameToEmboss();
-        Assert.assertEquals(false, actual);
-    }
-
-    @Test
-    @DisplayName("Checking if space is a first symbol")
-    @Description("Basic negative test when name starts with space")
-    public void nameStartsWithSpaceTest(){
-        Account account = new Account(" qwewd");
-        boolean actual = account.checkNameToEmboss();
-        Assert.assertEquals(false, actual);
-    }
-
-    @Test
-    @DisplayName("Checking if space is a last symbol")
-    @Description("Basic negative test when name ends with space")
-    public void nameEndsWithSpaceTest(){
-        Account account = new Account("qw23 ");
-        boolean actual = account.checkNameToEmboss();
-        Assert.assertEquals(false, actual);
-    }
-
-    @Test
-    @DisplayName("Checking if there is no space")
-    @Description("Basic negative test when name didn't includes any space")
-    public void nameWithoutSpaceTest(){
-        Account account = new Account("qwewqdwfwe");
-        boolean actual = account.checkNameToEmboss();
-        Assert.assertEquals(false, actual);
-    }
-
 }
